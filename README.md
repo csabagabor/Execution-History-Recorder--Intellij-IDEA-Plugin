@@ -1,1 +1,1 @@
-# Execution-History-Recorder--Intellij-IDEA-Plugin
+# Execution-History-Recorder---Intellij-IDEA-Plugin

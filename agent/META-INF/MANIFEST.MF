@@ -1,0 +1,6 @@
+Main-Class: modified.com.intellij.rt.coverage.main.CoveragePremain
+Manifest-Version: 1.0
+Premain-Class: modified.com.intellij.rt.coverage.main.CoveragePremain
+Agent-Class:  modified.com.intellij.rt.coverage.main.CoveragePremain
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true

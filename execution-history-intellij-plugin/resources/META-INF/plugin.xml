@@ -1,0 +1,174 @@
+<idea-plugin>
+    <id>Execution-History-Recorder</id>
+    <name>Execution History Recorder</name>
+    <version>1.7</version>
+    <vendor
+            email="csabag.laszlo@gmail.com"
+            url="https://github.com/csabagabor">
+        Csaba Gabor
+    </vendor>
+
+    <category>Debugging</category>
+
+    <description><![CDATA[
+
+   <br>
+<b>Important: it only works with JDK 8 or higher</b>
+<br>
+<br>
+Have you ever wondered what classes/methods are called if you do something in an application e.g. call an endpoint, click on a button etc.
+<br>
+This plugin lets you <b>record execution of your application (you can <b>start recording at any point in time
+    and stop it when you are ready</b>) and shows:</b>
+<br>
+<ul>
+    <li><b>Sequence diagram</b> with all the classes/methods that were called, you can click on any method and it will
+        lead to the execution point
+    </li>
+    <li><b>Variable information</b> (values of variables at different places during execution)</li>
+    <li><b>Stack Traces:</b> which contain variable information as well, you can navigate between stack frames the same
+        way you do it during a normal debugging session
+    </li>
+    <li><b>Covered lines</b> are shown in green and not covered lines in red (just like a coverage runner)</li>
+</ul>
+<br>
+Also you can:
+<ul>
+    <li><b>Save</b> the recording to a file</li>
+    <li><b>Load</b> a previously saved recording, you can also <b>send the recording</b> to anybody who can view it if
+        he/she has the same project opened
+    </li>
+</ul>
+
+
+<br>
+<b>Manual (Help):</b>
+<br>
+<p><b>There are 2 ways to use it.</b></p>
+<ul>
+    <li><b>1. Either use the the usual Run and Debug buttons inside IDEA and then just hit the Green Recording button
+        inside the Console View to start recording.
+        The button will turn red. When you are done, press the button again, and the sequence diagram will pop
+        up</b></li>
+    <li><b>2. If option 1. doesn't work, you can run/debug your project with the 2 new run/debug buttons and start the
+        recording from Tools -> History Recorder -> Start History Recorder</b></li>
+    <li><b>** It is important to only include the classes/packages that you need for the recording(can be changed in Run Configuration Menu - History Recorder Settings),
+     else the recording will take more time.
+    By default, it includes all the classes in the project.</b></li>
+</ul>
+<br>
+<b>Reset (Delete Recording information from Source Files):</b>
+<br>
+To remove coverage information, icons next to methods, blue execution line shower etc. go to Tools -> History Recorder ->
+ Remove History Recorder highlights (Alt+G is the shortcut)
+
+<br>
+<br>
+<b>Why and when to use it:</b>
+<br>
+
+<ul>
+    <li>To generate a sequence diagram automatically from a given use case (calling endpoint, clicking on button etc.) -
+        diagram can be exported
+    </li>
+    <li>To quickly see which lines are executed in certain classes in response to an event. Can speed up debugging quite
+        a lot. If you know which
+        parts are executed, you know where to place a breakpoint.
+    </li>
+    <li>To record execution of something, save it and then after some time load it again without going through the same
+        Debugging session
+    </li>
+    <li>You can save execution when a bug happens and the resulting recording can be loaded into IDEA and inspected by
+        other people as well
+    </li>
+    <li>Works really well with <b>Microservices</b> and with the <b>Spring Framework</b></li>
+
+</ul>
+
+<br>
+<br>
+Credits:<br><br>
+'Recording button' Icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a
+        href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+<br>
+Variable extraction is based on the code provided by https://github.com/cnhguy/FootPrint
+<br>
+Sequence diagram provided by https://github.com/Vanco/SequencePlugin
+<br>
+IntelliJ IDEA Code Coverage Agent: https://github.com/JetBrains/intellij-coverage
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <p>1.7 (28-aug-2020)</p>
+        <ul>
+            <li>Initial version with 3 modes: show only coverage lines, show sequence diagram, show full variable information(slowest) </li>
+        </ul>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="193"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!--        debug module - can be reused-->
+        <editor.linePainter implementation="gabor.history.debug.view.decorator.VariableEditorLinePainter"/>
+        <projectViewNodeDecorator implementation="gabor.history.debug.view.decorator.CoverageProjectViewNodeDecorator"/>
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="gabor.history.debug.view.decorator.MethodCoverageLineMarkerProvider"/>
+        <projectService
+                serviceImplementation="gabor.history.debug.view.HistoryToolWindowService"/>
+        <runConfigurationExtension implementation="gabor.history.debug.executor.HistoryRunConfigurationExtension"/>
+        <executor implementation="gabor.history.debug.executor.CustomHistoryRunnerExecutor"/>
+        <programRunner implementation="gabor.history.debug.executor.CustomHistoryRunner" order="first"/>
+
+
+        <executor implementation="gabor.history.debug.executor.CustomHistoryDebuggerExecutor"/>
+        <programRunner implementation="gabor.history.debug.executor.CustomHistoryDebugger" order="last"/>
+        <!--        debug module-->
+
+        <!--        sequence plugin-->
+        <applicationConfigurable groupId="tools"
+                                 id="reuse.Settings.Sequence.Configuration"
+                                 instance="reuse.sequence.config.ConfigurationOptions"/>
+        <applicationService serviceImplementation="reuse.sequence.config.Configuration"/>
+
+        <projectService serviceInterface="reuse.sequence.SequenceService"
+                        serviceImplementation="reuse.sequence.impl.SequenceServiceImpl"/>
+
+        <!--        sequence plugin-->
+
+        <consoleActionsPostProcessor
+                implementation="gabor.history.extension.HistoryRunnerConsoleActionsPostProcessor"/>
+    </extensions>
+    <actions>
+        <group class="gabor.history.action.HistoryRunnerActionGroup" id="HistoryRecorderGroup" text="History Recorder"
+               description="History recorder"
+               icon="/icons/history/attach-agent.svg" popup="true" compact="true">
+            <action id="gabor.history.action.StartHistoryRunnerConsoleAction"
+                    class="gabor.history.action.StartHistoryRunnerConsoleAction" text="Start History Recorder"
+                    description="Start history runner" icon="/icons/history/attach-agent.svg">
+            </action>
+            <separator/>
+            <action id="gabor.history.action.RemoveHistoryRunnerConsoleAction"
+                    class="gabor.history.action.RemoveHistoryRunnerConsoleAction" text="Remove History Recorder Highlights"
+                    description="Remove all coverage information from UI" icon="/icons/history/attach-agent.svg">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt G"/>
+            </action>
+            <separator/>
+            <action id="gabor.history.debug.action.LoadRecordingAction" class="gabor.history.debug.action.LoadRecordingAction"
+                    text="Open Recording from File..." description="Open recording from file..." icon="/icons/history/attach-agent.svg">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt O"/>
+            </action>
+            <action id="gabor.history.debug.action.SaveRecordingAction" class="gabor.history.debug.action.SaveRecordingAction"
+                    text="Save Recording to File..." description="Save recording to file..." icon="/icons/history/attach-agent.svg">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt I"/>
+            </action>
+            <add-to-group group-id="ToolsMenu" relative-to-action="GenerateJavadoc" anchor="after"/>
+        </group>
+    </actions>
+</idea-plugin>
