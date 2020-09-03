@@ -19,33 +19,32 @@
 ![history](/images/coverage.bmp)
 10. Also, a button appears next to each method that is included in a stack trace. Press the button to load the stack trace containing that method.  
 ![history](/images/execution_points.bmp)
-11. To delete all the recording information from the source files: icons, green/red lines etc. press `ALT + G` or go to `Tools -> History Recorder ->
- Remove History Recorder highlights`.
- 12. Also you will be able to see variable information next to variables:  
+11. Also you will be able to see variable information next to variables:  
 ![history](/images/hover.bmp)
+12. To delete all the recording information from the source files: icons, green/red lines etc. press `ALT + G` or go to `Tools -> History Recorder ->
+ Remove History Recorder highlights`.
 
 ## Export/Import Recording
 
 1. Go to `Tools -> History Recorder ->  Open Recording from file`  
 ![history](/images/open_recording.bmp)
 2. To save a recording (**only works if you haven't deleted the recording with ALT + G before**): go to `Tools -> History Recorder ->  Save Recording to file`.
-3. You can send the exported file to anybody. It can be loaded on any OS, on any IntelliJ version. The same project must be opened.
+3. You can send the exported file to anybody. It can be loaded on any OS, on any IntelliJ version >= 2019.3. The same project must be opened.
 
 ## Run Configuration Settings:
-> Note: all the 
-1. Include patterns if your project is too large. By deafult, if you don't include any patterns, all the classes in your project will be included.  
+1. Include patterns if your project is too large. By default, if you don't include any patterns, all the classes in your project will be included(=>slow).  
 ![history](/images/patterns.bmp)
 2. There are 3 modes in which you can run the agent:  
-	- 1). Only coveraged lines: fastest option, shows only green/red lines
+	- 1). Only covered lines: fastest option, shows only green/red lines
 	- 2). Sequence Diagram + stack traces: without variable information, somewhat slower than 1st mode
 	- 3). Variable information: slowest option. **Use it with caution: it might consume a lot of memory for large projects**
-3. **Number of stack traces to show**: depending on memory consumption and execution time, you can set to a larger value.  
+3. **Number of stack traces to show**: depending on memory consumption and execution time, you can set it to a larger value.  
 ![history](/images/nr_breaks.bmp)
 4. **Max number of occurrence of a single method** means how many number of times the same method is shown in the sequence diagram/stack traces. It does not make sense to set it to a high value, because it has a high impact on execution time(there can be methods which are called several thousand times...).
 5. There are other options to limit the memory consumption like limit the number of collection items, number of fields to include, include getters/setters/constructors etc.
 
 ## Sequence Diagram filtering options:
-1. **Filter classes:** only included stack frames which have the selected classes as their last execution points:  
+1. **Filter classes:** only include stack frames which have the selected classes as their last execution points:  
 ![history](/images/filter.bmp)
 2. **Search:** Searched classes and their methods will appear in red. 
 ![history](/images/search.bmp)
