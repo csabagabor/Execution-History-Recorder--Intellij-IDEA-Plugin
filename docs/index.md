@@ -62,6 +62,7 @@
 3. Show accurate coverage percentages next to file names(currently it is calculated based on the total number of lines and not based on the lines containing executable code)
 4. Kotlin support
 
+> Source code will be available soon on Github.
 
 ### Support 
 [Please check out my other plugins and give a review if you like them](https://plugins.jetbrains.com/author/b008256f-d5e7-4092-a142-ce7029345cec)
