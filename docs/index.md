@@ -64,5 +64,18 @@
 
 > Source code will be available soon on Github.
 
+## Credits:  
+`Recording button's` Icon made by https://www.flaticon.com/authors/freepik on 
+www.flaticon.com  
+
+Variable extraction is based on the code provided by https://github.com/cnhguy/FootPrint  
+
+Sequence diagram provided by https://github.com/Vanco/SequencePlugin  
+
+IntelliJ IDEA Code Coverage Agent: https://github.com/JetBrains/intellij-coverage  
+
+## License
+GPL
+
 ### Support 
 [Please check out my other plugins and give a review if you like them](https://plugins.jetbrains.com/author/b008256f-d5e7-4092-a142-ce7029345cec)
