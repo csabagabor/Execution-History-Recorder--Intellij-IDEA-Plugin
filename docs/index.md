@@ -65,14 +65,14 @@
 > Source code will be available soon on Github.
 
 ## Credits:  
-`Recording button's` Icon made by https://www.flaticon.com/authors/freepik on 
+`Recording button's` Icon made by [https://www.flaticon.com/authors/freepik](https://www.flaticon.com/authors/freepik) on 
 www.flaticon.com  
 
-Variable extraction is based on the code provided by https://github.com/cnhguy/FootPrint  
+Variable extraction is based on the code provided by [https://github.com/cnhguy/FootPrint](https://github.com/cnhguy/FootPrint)
 
-Sequence diagram provided by https://github.com/Vanco/SequencePlugin  
+Sequence diagram provided by [https://github.com/Vanco/SequencePlugin](https://github.com/Vanco/SequencePlugin)
 
-IntelliJ IDEA Code Coverage Agent: https://github.com/JetBrains/intellij-coverage  
+IntelliJ IDEA Code Coverage Agent: [https://github.com/JetBrains/intellij-coverage](https://github.com/JetBrains/intellij-coverage)  
 
 ## License
 GPL
