@@ -57,7 +57,6 @@
 > Note: **only for debug purposes, not for general use:** There is a hack to enable and see debug logs in a JFrame. To enable it, just write `HISTORY_MAGIC` inside the exclude packages menu in the Run Configuration tab. A new Window will pop up. You can then open an issue on Github and attach the log messages. This will help me solve the problem... After you are done, remove `HISTORY_MAGIC` from the exclude list. 
 
 ## Future development
-**Pull Requests are welcome!!!**
 1. Show full variable information when hovering over variable (like in IntelliJ Debugger)
 2. Change instrumented patterns/filters during runtime
 3. Show accurate coverage percentages next to file names(currently it is calculated based on the total number of lines and not based on the lines containing executable code)
