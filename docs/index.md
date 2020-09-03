@@ -1,8 +1,9 @@
-## Welcome to GitHub Pages
+## Manual
 
-You can use the [editor on GitHub](https://github.com/csabagabor/Execution-History-Recorder--Intellij-IDEA-Plugin/edit/pages_for_github/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. Install it from the [Marketplace](https://plugins.jetbrains.com/plugin/14968-execution-history-recorder) 
+2. Run any project and open the **Console Tab**. When you are ready to record, press the green recording button.  
+![history](/images/start.bmp)
+3. 
 
 ### Markdown
 
