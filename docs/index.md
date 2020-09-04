@@ -57,7 +57,7 @@ Youtube Video: [https://www.youtube.com/watch?v=EyW-0LeJRuc](https://www.youtube
 
 ## Issues and limitations
 > Note: **only for debug purposes, not for general use:** There is a hack to enable and see debug logs in a JFrame. To enable it, just write `HISTORY_MAGIC` inside the exclude packages menu in the Run Configuration tab. A new Window will pop up. You can then open an issue on Github and attach the log messages. This will help me solve the problem... After you are done, remove `HISTORY_MAGIC` from the exclude list. 
-1. Currently does not work with Maven. This will be fixed.
+1. Currently does not work well with the Maven Template inside IntelliJ. The settings Tab is not shown. This means that include/exclude filters cannot be set. This will be fixed.
 2. **Only a single application can be recorded in the same project at a given time. Trying to record multiple apps will result in race confitions.**
 3. Sometimes the recorder icon dissapears or becomes grey. In this case click on the Console Window(where the logs appear) next to the icon.
 
