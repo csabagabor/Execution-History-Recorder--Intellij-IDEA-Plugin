@@ -1,7 +1,10 @@
 ## Manual
 
+Youtube Video: [https://www.youtube.com/watch?v=EyW-0LeJRuc](https://www.youtube.com/watch?v=EyW-0LeJRuc)
+
 1. Install it from the [Marketplace](https://plugins.jetbrains.com/plugin/14968-execution-history-recorder)     
->Note: If you have a large project go to step 4 before going to step 2. Also, I'd recommend trying out the plugin on some small project like this Spring Boot app: [https://github.com/spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic) 
+>Note: If you have a large project go to step 4 before going to step 2. Also, I'd recommend trying out the plugin on some small project like this Spring Boot app:
+ [https://github.com/csabagabor/Spring-Boot-Petclinic-app](https://github.com/csabagabor/Spring-Boot-Petclinic-app) 
 2. Run any project and open the **Console Tab**. When you are ready to record, press the green recording button.   
 > Note: If the button does not appear go to `Tools -> History Recorder -> Start History Recorder`  
 ![history](/images/start.bmp)  
