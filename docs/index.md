@@ -11,7 +11,8 @@ Youtube Video: [https://www.youtube.com/watch?v=EyW-0LeJRuc](https://www.youtube
 3. Now you just have to wait until the button turns red. Also a notification will appear saying, recording is ON. **This will take a long time for a large project!!!!! In this case go to step 4**
 4. Go to the Run configuration menu -> History Recorder Settings and include only the classes/packages you want to include. When including a package write `package1.package2.*`.  After this step you must restart the application.    
 ![history](/images/configuration.bmp)    
-5. After recording is ON, you can carry out the actions you want in the app. Everything will be recorded until you press the (now) red recording button.  
+5. After recording is ON, you can carry out the actions you want in the app. Everything will be recorded until you press the (now) red recording button. 
+> **Note: recording cannot start if the main thread is blocked. So you cannot stop at a breakpoint and start recording. The application must be in a running state.**
 6. Press the red button to stop recording.  
 ![history](/images/stop.bmp)  
 7. Wait until the sequence diagram pops up. You can click on methods, arrows on the sequence diagram and it will lead you to the execution point.  
