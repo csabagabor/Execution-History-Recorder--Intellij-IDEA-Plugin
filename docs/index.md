@@ -68,7 +68,7 @@ Youtube Video: [https://www.youtube.com/watch?v=EyW-0LeJRuc](https://www.youtube
 3. Show accurate coverage percentages next to file names(currently it is calculated based on the total number of lines and not based on the lines containing executable code)
 4. Kotlin support
 
-> Source code will be available soon on Github.
+
 
 ## Credits:  
 `Recording button's` Icon made by [https://www.flaticon.com/authors/freepik](https://www.flaticon.com/authors/freepik) on 
