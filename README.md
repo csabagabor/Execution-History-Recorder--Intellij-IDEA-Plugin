@@ -1,3 +1,5 @@
+[Support me on Patreon](https://www.patreon.com/csabagabor?fan_landing=true)
+
 # Execution-History-Recorder---Intellij-IDEA-Plugin
 
 # Documentation:  
